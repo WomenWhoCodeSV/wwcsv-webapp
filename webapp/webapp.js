@@ -1,23 +1,24 @@
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
-
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
+  Template.meetupEvents.helpers({
+    allEvents : function () {
+      return Session.get("allEvents");
     }
   });
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
+  Template.meetupEvents.created = function(){
+      Meteor.call('meetupEvents',function(err, response) {
+        console.log(response.data.results)
+        Session.set("allEvents", response.data.results)
+      });
+  }
 }
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    // code to run on server at startup
+    Meteor.methods({
+      meetupEvents: function(){
+       return Meteor.http.call("get", 'http://api.meetup.com/2/events?group_urlname=Women-Who-Code-silicon-valley&key=53363a1234a576ea7f545221c541f')
+      }
+    });
   });
 }

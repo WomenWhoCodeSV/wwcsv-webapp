@@ -3,12 +3,22 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+  <h1>WWC SV</h1>
+  {{> meetupEvents}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+
+<template name="meetupEvents">
+  <div id="column">
+    {{#each allEvents}}
+        {{> singleEvent}}
+    {{ /each}}
+  </div>
+</template>
+
+
+<template name="singleEvent">
+    <p> {{event_url}}</p>
+    <p> {{name}}</p>
+    <p> {{yes_rsvp_count}}</p>
 </template>
