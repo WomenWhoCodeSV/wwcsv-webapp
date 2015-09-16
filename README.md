@@ -5,7 +5,7 @@ This is the official repository of Women Who Code - Silicon Valley's Web Applica
 ##Documentation##
 This app is being built using MeteorJS Web Framework with MongoDB in the backend. 
 
-##Start the App##
+######Start the App######
         cd wwcsv-webapp/webapp
         meteor
 
