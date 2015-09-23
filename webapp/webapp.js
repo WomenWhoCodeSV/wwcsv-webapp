@@ -11,6 +11,10 @@ if (Meteor.isClient) {
         Session.set("allEvents", response.data.results)
       });
   }
+
+  Template.registerHelper("prettifyDate", function(timestamp,utcoffset) {
+    return moment(new Date(timestamp)).format('DD/MM/YYYY, h:mm a');
+  });
 }
 
 if (Meteor.isServer) {

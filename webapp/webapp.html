@@ -9,7 +9,7 @@
 
 
 <template name="meetupEvents">
-  <div id="column">
+  <div class="item-list">
     {{#each allEvents}}
         {{> singleEvent}}
     {{ /each}}
@@ -18,7 +18,9 @@
 
 
 <template name="singleEvent">
-    <p> {{event_url}}</p>
+  <div class="item">
     <p> {{name}}</p>
-    <p> {{yes_rsvp_count}}</p>
+    <p> capacity: {{rsvp_limit}}</p>
+    <p> {{prettifyDate time utc_offset}} </p>
+  </div>
 </template>
