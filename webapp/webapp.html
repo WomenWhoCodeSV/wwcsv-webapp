@@ -1,13 +1,3 @@
-<head>
-  <title>webapp</title>
-</head>
-
-<body>
-  <h1>WWC SV</h1>
-  {{> meetupEvents}}
-</body>
-
-
 <template name="meetupEvents">
   <div class="item-list">
     {{#each allEvents}}
@@ -18,9 +8,9 @@
 
 
 <template name="singleEvent">
-  <div class="item">
-    <p> {{name}}</p>
-    <p> capacity: {{rsvp_limit}}</p>
-    <p> {{prettifyDate time utc_offset}} </p>
-  </div>
+  <a class="item" style="text-decoration:none" href="/events/{{id}}">
+    <p class="name"> {{name}}</p>
+    <p class="capacity"> capacity: {{rsvp_limit}}</p>
+    <p class= "date"> {{prettifyDate time utc_offset}} </p> 
+  </a>
 </template>

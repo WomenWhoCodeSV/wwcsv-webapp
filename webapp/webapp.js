@@ -22,6 +22,9 @@ if (Meteor.isServer) {
     Meteor.methods({
       meetupEvents: function(){
        return Meteor.http.call("get", 'http://api.meetup.com/2/events?group_urlname=Women-Who-Code-silicon-valley&key=53363a1234a576ea7f545221c541f')
+      },
+      oneEvent: function(){
+       return Meteor.http.call("GET", 'http://api.meetup.com/Women-Who-Code-silicon-valley/events/kxmpklytmbnc?key=53363a1234a576ea7f545221c541f', {headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}})
       }
     });
   });
