@@ -1,30 +1,37 @@
 if (Meteor.isClient) {
   Template.meetupEvents.helpers({
     allEvents : function () {
-      return Session.get("allEvents");
+      return Template.instance().allWWCEvents.get().results;
     }
   });
 
   Template.meetupEvents.created = function(){
-      Meteor.call('meetupEvents',function(err, response) {
-        Session.set("allEvents", response.data.results)
-      });
-  }
+    var self = this;
+    self.allWWCEvents = new ReactiveVar();
+    Meteor.call('meetupEvents',function(err, response){
+      if (err)
+        console.log(err);
+      else
+        self.allWWCEvents.set(response.data);
+    });
+  };
 
   Template.registerHelper("prettifyDate", function(timestamp,utcoffset) {
     return moment(new Date(timestamp)).format('DD/MM/YYYY, h:mm a');
   });
 
   Template.event.created = function() {
+    var self = this;
+    self.eventDetails = new ReactiveVar();
     Meteor.call('oneEvent', this.data._id, function (err, response) {
       console.log(response.data)
-      Session.set("oneEvent", response.data)
+      self.eventDetails.set(response.data);
     });
   }
 
   Template.event.helpers({
     oneEvent : function () {
-      return Session.get("oneEvent");
+      return Template.instance().eventDetails.get();
     }
   });
 }
