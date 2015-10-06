@@ -1,19 +1,19 @@
 @import 'jeet'
 
+
+
 ex-box-showdow()
   -webkit-box-shadow: arguments
   -moz-box-shadow: arguments
   box-shadow: arguments
 
 body
-  padding-right: 15px
-  padding-left: 15px
-  margin-right: auto
-  margin-left: auto
-  width: 1170px
+  width: 100%
+  margin: auto
 
-h1
-  text-align: center
+.container
+  width: 1170px
+  margin: 0 auto
 
 .item
   column(1/4, cycle: 4)
@@ -24,15 +24,16 @@ h1
   margin-bottom: 10px
   ex-box-showdow 1px 1px 1.5px 1px rgba(0,0,0,0.13)
   transition all ease 0.3s
-    &:hover
-      ex-box-showdow 5px 5px 2px 1px rgba(0,0,0,0.13) 
+  &:hover
+   ex-box-showdow 5px 5px 2px 1px rgba(0,0,0,0.13)
+   background-color green
 
-.name 
+.name
   color: black
   font-size: 15px
 
 .capacity
   @extend .name
-  
+
 .date
   @extend .name

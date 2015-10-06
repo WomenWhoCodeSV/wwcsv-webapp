@@ -2,8 +2,12 @@
 	<title> WWC - Silicon Valley </title>
 </head>
 
-
 <template name="layout">
-	<h1>WWC SV</h1>
-	{{> yield}}
+  {{> header}}
+  <div class="container">
+    <div class="content">
+      {{> yield}}
+    </div>
+  </div>
+
 </template>
