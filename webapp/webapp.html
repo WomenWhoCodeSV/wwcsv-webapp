@@ -7,17 +7,21 @@
 </template>
 
 <template name="event">
+  <div class="single-event">
   {{#with oneEvent}}
   <p> {{id}} </p>
   <p> {{name}} </p>
   {{> anotherTemplate}}
   {{/with}}
+  </div>
 </template>
 
 
 <template name="anotherTemplate">
-  Lat: {{venue.lat}}
-  Log: {{venue.lon}}
+    <div class = 'event'>
+    Lat: {{venue.lat}}
+    Log: {{venue.lon}}
+    </div>
 </template>
 
 <template name="singleEvent">

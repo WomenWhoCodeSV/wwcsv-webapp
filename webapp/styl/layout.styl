@@ -1,6 +1,5 @@
 @import 'jeet'
-
-
+@import 'rupture'
 
 ex-box-showdow()
   -webkit-box-shadow: arguments
@@ -14,9 +13,6 @@ body
 .container
   width: 1170px
   margin: 0 auto
-
-
-.content
   position relative
   top 155px
 
@@ -31,7 +27,6 @@ body
   transition all ease 0.3s
   &:hover
    ex-box-showdow 5px 5px 2px 1px rgba(0,0,0,0.13)
-   background-color green
 
 .name
   color: black
@@ -42,14 +37,5 @@ body
 
 .date
   @extend .name
-
-.footer
-  clear: both;
-  background:#ffab62;
-  width:100%;
-  position: relative;
-  bottom:0;
-  top: 155px
-  left:0;
 
 

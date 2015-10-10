@@ -1,12 +1,17 @@
 @import 'jeet'
-$header-height = 120
+@import 'rupture'
+header-height = 120
+
 
 .header
   background: #000000
-  height $header-height px
+  height header-height px
   position: fixed
   width: 100%
-  top: 0px
+  top: 0
+  .header-container
+    width: 1170px
+    margin: 0 auto
 
 .prettify
   color: white
@@ -16,7 +21,7 @@ $header-height = 120
 
 li
   font 18px HelveticaNeue
-  line-height ($header-height/2)px
+  line-height (header-height/2)px
   float:left
   list-style: none
   margin-left: 50px
