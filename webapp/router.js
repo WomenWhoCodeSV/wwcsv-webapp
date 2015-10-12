@@ -2,7 +2,9 @@ Router.configure({
   layoutTemplate: 'layout'
 });
 
-Router.route("/", {name: "index"});
+Router.route("/", {name: "about"});
+
+Router.route("/events", {name: "meetupEvents"})
 
 
 Router.route('/events/:_id', function () {
